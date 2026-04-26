@@ -1,0 +1,54 @@
+<!-- index.html FINAL SIMPLE -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pak E Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Pak E Store</h1>
+<p class="subtitle">Premium Games Loading Store</p>
+
+<label>Please Select Your Hard Drive</label>
+<select id="storage" onchange="updateAll()">
+<option value="320" selected>320 GB</option>
+<option value="500">500 GB</option>
+<option value="1000">1 TB</option>
+<option value="2000">2 TB</option>
+</select>
+
+<label>Please Select Your Hard Drive Variant</label>
+<select id="variant" onchange="updateAll()">
+<option value="portable" selected>Portable HDD</option>
+<option value="internal">Internal HDD</option>
+</select>
+
+<div class="infoBox">
+<p id="price">Price: Rs 6500</p>
+<p id="selectedSize">Selected Games Size: 0 GB</p>
+<p id="remaining">Remaining Space: 290 GB</p>
+</div>
+
+<h2>Select Games</h2>
+
+<div class="gamesScroll">
+<div id="gamesList"></div>
+</div>
+
+<div class="bottomBar">
+<button class="mainBtn" onclick="placeOrder()">
+Place Order
+</button>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
