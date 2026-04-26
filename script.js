@@ -1,4 +1,4 @@
-/* script.js FINAL SIMPLE */
+/* script.js FINAL SIMPLE NO ADVANCE */
 
 const prices = {
 320:{portable:6500,internal:5000},
@@ -14,7 +14,7 @@ const freeSpace = {
 2000:1830
 };
 
-/* Replace this list with your full games list */
+/* Replace with your full games list */
 const games = [
 {name:"Grand Theft Auto 5 Legacy with Pakistani Modes",size:150},
 {name:"Grand Theft Auto IV",size:35},
@@ -176,6 +176,7 @@ const games = [
 {name:"Ghost Of Tsushima",size:70}
 ];
 
+
 /* Load */
 
 window.onload = function(){
@@ -208,29 +209,22 @@ document.getElementById("gamesList").innerHTML = html;
 
 function updateAll(){
 
-const storage =
-document.getElementById("storage").value;
+const storage = document.getElementById("storage").value;
+const variant = document.getElementById("variant").value;
 
-const variant =
-document.getElementById("variant").value;
-
-const price =
-prices[storage][variant];
+const price = prices[storage][variant];
 
 let total = 0;
 
 document.querySelectorAll("#gamesList input").forEach(box=>{
 
 if(box.checked){
-
 total += games[box.value].size;
-
 }
 
 });
 
-const remain =
-freeSpace[storage] - total;
+const remain = freeSpace[storage] - total;
 
 document.getElementById("price").innerHTML =
 "Price: Rs " + price;
@@ -247,14 +241,9 @@ document.getElementById("remaining").innerHTML =
 
 function placeOrder(){
 
-const storage =
-document.getElementById("storage").value;
-
-const variant =
-document.getElementById("variant").value;
-
-const price =
-prices[storage][variant];
+const storage = document.getElementById("storage").value;
+const variant = document.getElementById("variant").value;
+const price = prices[storage][variant];
 
 let total = 0;
 let selectedGames = "";
@@ -274,21 +263,14 @@ selectedGames +=
 });
 
 if(total === 0){
-
 alert("Please Select Games");
 return;
-
 }
 
 if(total > freeSpace[storage]){
-
 alert("Selected HDD Full. Please Choose Bigger HDD");
 return;
-
 }
-
-const advance = 500;
-const cod = price - advance;
 
 const msg =
 "🛒 *NEW ORDER RECEIVED*%0A%0A"+
@@ -302,14 +284,7 @@ selectedGames + "%0A"+
 
 "📊 Total Games Size: " + total + " GB%0A%0A"+
 
-"💵 Advance Payment: Rs " + advance + "%0A"+
-"🚚 Remaining Amount: Rs " + cod + " (Cash On Delivery)%0A%0A"+
-
-"🏦 *Payment Details*%0A"+
-"Bank Name: Bank Alfalah%0A"+
-"Account Title: Pak E Store%0A"+
-"Account Number: 02161009500017%0A"+
-"IBAN: PK50ALFH0216001009500017";
+"✅ Please Confirm This Order.";
 
 window.open(
 "https://wa.me/923262281245?text=" + msg,
